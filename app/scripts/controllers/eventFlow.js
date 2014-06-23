@@ -15,6 +15,6 @@ angular.module('iamNobodyApp')
         };
 
         $scope.addOne = function () {
-            $rootScope.me.hp ++;
+            $rootScope.me.data.hp ++;
         };
     });

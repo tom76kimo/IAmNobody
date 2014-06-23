@@ -50,6 +50,7 @@ angular.module('iamNobodyApp', [
     $rootScope.me = new Hero();
     
     if (localStorage.getItem('heroData') !== null) {
+      console.log('Load Data....');
       $rootScope.me.loadData(JSON.parse(localStorage.getItem('heroData')));
     }
     setInterval(function () {
