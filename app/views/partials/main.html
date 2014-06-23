@@ -2,9 +2,9 @@
   <div class="col-xs-3">
     <div>{{resource.wood}}</div>
     <div ng-repeat="building in resource.building" ng-mouseenter="enterBulding(building)" ng-mouseleave="leaveBulding()">
-      <div class="houseEntry">
-        {{building.name}}
-        <div ng-show="isEnteringBuilding(building)" class="houseDetail">
+      <div class="buildingEntry">
+        <div class="buildingName">{{building.name}}</div>
+        <div ng-show="isEnteringBuilding(building)" class="buildingDetail">
           {{building.require.wood}}
         </div>
       </div>
