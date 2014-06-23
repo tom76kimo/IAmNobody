@@ -6,8 +6,6 @@ angular.module('iamNobodyApp')
             {'description': '我是一個無名的人'}
         ];
 
-        console.log($rootScope.me);
-
         $scope.eventInjection = function (eventEntry) {
             $scope.$apply(function() {
               $scope.events.push(eventEntry);

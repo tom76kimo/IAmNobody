@@ -5,10 +5,11 @@ angular.module('iamNobodyApp')
     $scope.menu = [{
       'title': 'Home',
       'link': '/'
-    }, {
-      'title': 'Settings',
-      'link': '/settings'
-    }];
+    }//, {
+    //  'title': 'Settings',
+    //  'link': '/settings'
+    //}
+    ];
     
     $scope.logout = function() {
       Auth.logout()

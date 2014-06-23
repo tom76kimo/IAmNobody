@@ -84,3 +84,76 @@ body {
   -moz-box-shadow:    10px 2px 5px 0px rgba(50, 50, 50, 0.75);
   box-shadow:         10px 2px 5px 0px rgba(50, 50, 50, 0.75);
 }
+
+.container.ng-leave {
+  -webkit-animation: 0.3s fade-out;
+  -moz-animation: 0.3s fade-out;
+  -o-animation: 0.3s fade-out;
+  animation: 0.3s fade-out;
+}
+.container.ng-enter {
+  -webkit-animation: 0.3s fade-in;
+  -moz-animation: 0.3s fade-in;
+  -o-animation: 0.3s fade-in;
+  animation: 0.3s fade-in;
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@-moz-keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@-webkit-keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fade-out {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+@-moz-keyframes fade-out {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+@-webkit-keyframes fade-out {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+@media screen and (min-width: 768px) {
+  .mainContainer {
+    max-width: 800px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .mainContainer {
+    max-width: 1170px;
+    margin: 0 auto;
+  }
+}
+
+@media screen and (min-width: 1480px) {
+  .mainContainer {
+    max-width: 1550px;
+    margin: 0 auto;
+  }
+}
+
+.houseEntry {
+  width: 100%;
+  height: 40px;
+  border: 1px solid #000;
+  margin: 2px 0;
+  border-radius: 5px;
+  text-align: center;
+}
+.houseDetail {
+  position: absolute;
+  width: 100%;
+  background-color: #ddd;
+}

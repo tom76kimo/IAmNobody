@@ -1,21 +1,19 @@
-<div ng-include="'partials/navbar'"></div>
-
-<div class="jumbotron">
-  <h1>'Allo, 'Allo <span ng-show="currentUser">{{ currentUser.name }}</span>!</h1>
-  <p class="lead">
-    <img src="images/yeoman.png" alt="I'm Yeoman"><br>
-    Always a pleasure scaffolding your apps.
-  </p>
-  <p><a class="btn btn-lg btn-success" ng-href="#">Splendid!</a></p>
-</div>
-
-<div class="row marketing">
-  <div ng-repeat="thing in awesomeThings">
-      <h4>{{thing.name}}</h4>
-      <p>{{thing.info}}</p>
+<div class="row">
+  <div class="col-xs-3">
+    <div>{{resource.wood}}</div>
+    <div ng-repeat="building in resource.building" ng-mouseenter="enterBulding(building)" ng-mouseleave="leaveBulding()">
+      <div class="houseEntry">{{building.name}}</div>
+      <div ng-show="isEnteringBuilding(building)" class="houseDetail">
+        {{building.require.wood}}
+      </div>
+    </div>
   </div>
-</div>
-
-<div class="footer">
-  <p>♥ from the Yeoman team</p>
+  <div class="col-xs-5">
+    <div>{{resource.wood}}</div>
+    <div ng-repeat="i in [1, 2, 3]">{{i}}</div>
+  </div>
+  <div class="col-xs-4">
+    <div>{{resource.wood}}</div>
+    <div ng-repeat="i in [1, 2, 3]">{{i}}</div>
+  </div>
 </div>

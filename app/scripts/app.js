@@ -4,13 +4,18 @@ angular.module('iamNobodyApp', [
   'ngCookies',
   'ngResource',
   'ngSanitize',
-  'ngRoute'
+  'ngRoute',
+  'ngAnimate'
 ])
   .config(function ($routeProvider, $locationProvider, $httpProvider) {
     $routeProvider
       .when('/', {
         templateUrl: 'partials/main',
         controller: 'MainCtrl'
+      })
+      .when('/battle', {
+        templateUrl: 'partials/battle',
+        controller: 'BattleCtrl'
       })
       .when('/login', {
         templateUrl: 'partials/login',
@@ -46,8 +51,10 @@ angular.module('iamNobodyApp', [
       };
     }]);
   })
-  .run(function ($rootScope, $location, Auth, Hero) {
+  .run(function ($rootScope, $location, Auth, Hero, Item, Nobodyresource) {
     $rootScope.me = new Hero();
+    $rootScope.item = new Item();
+    $rootScope.resource = new Nobodyresource();
     
     if (localStorage.getItem('heroData') !== null) {
       console.log('Load Data....');

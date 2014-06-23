@@ -17,6 +17,7 @@ angular.module('iamNobodyApp')
             this.data.hpAddRate = 0.3;
             this.data.mpAddRate = 0.2;
             this.data.heartBeatInterval = 5000;
+            this.data.userItem = [];
 
             //run
             this.heartBeat();
@@ -83,6 +84,23 @@ angular.module('iamNobodyApp')
         Hero.prototype.roundedValue = function (value) {
             var targetValue = Math.floor(value * 100);
             return (targetValue / 100);
+        };
+
+        Hero.prototype.addItem = function (item) {
+            this.data.userItem.push(item);
+        };
+
+        Hero.prototype.getCostPlus = function () {
+            var result = {};
+            for (var i=0; i<this.userItems.length; ++i) {
+                var addType = this.userItems[i].addType;
+                if (result[addType]) {
+                    result[addType] += this.userItems[i].value;
+                } else {
+                    result[addType] = this.userItems[i].value;
+                }
+            }
+            return result;
         };
 
         return Hero;
