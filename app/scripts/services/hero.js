@@ -17,7 +17,7 @@ angular.module('iamNobodyApp')
             this.data.hpAddRate = 0.3;
             this.data.mpAddRate = 0.2;
             this.data.heartBeatInterval = 5000;
-            this.data.userItem = [];
+            this.data.items = [{name: '小木刀', addType: 'ad', value: 1, type: 'weapon'}];
 
             //run
             this.heartBeat();
@@ -87,7 +87,7 @@ angular.module('iamNobodyApp')
         };
 
         Hero.prototype.addItem = function (item) {
-            this.data.userItem.push(item);
+            this.data.items.push(item);
         };
 
         Hero.prototype.getCostPlus = function () {

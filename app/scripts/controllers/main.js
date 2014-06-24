@@ -6,6 +6,8 @@ angular.module('iamNobodyApp')
       $scope.awesomeThings = awesomeThings;
     });
     $scope.resource = $rootScope.resource;
+    $scope.me = $rootScope.me;
+    console.log($scope.me.data.items);
 
     $scope.enterBulding = function (building) {
         $scope.enterBuilding = building;
@@ -26,7 +28,6 @@ angular.module('iamNobodyApp')
             return;
         }
 
-        //TODO Build bilding....
-        $rootScope.resource.buildBuilding($scope.enterBuilding.id);
+        return $rootScope.resource.buildBuilding($scope.enterBuilding.id);
     };
   });

@@ -4,7 +4,7 @@ angular.module('iamNobodyApp')
   .service('Nobodyresource', function ($rootScope) {
     var Nobodyresource = function () {
         this.data = {};
-        this.data.wood = 0;
+        this.data.wood = 100;
         this.data.rock = 0;
         this.data.iron = 0;
         this.data.worker = 0;
@@ -54,6 +54,9 @@ angular.module('iamNobodyApp')
             }
         }
         if (enoughResource === true) {
+            for (var attr in this.data.building[buildingId].require) {
+                this.data[attr] -= this.data.building[buildingId].require[attr];
+            }
             this.data.building[buildingId].built = true;
             return true;
         } else {
