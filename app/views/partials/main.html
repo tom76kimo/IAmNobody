@@ -26,9 +26,9 @@
     <div class="col-xs-4" >
       調整生產
       <ul class="list-group">
-        <li class="list-group-item" tooltip-placement="left" tooltip-html-unsafe="Wood: {{resource.data.workerResource.wood * resource.data.costPlus.wood}} /10s" tooltip-append-to-body="true">Wood <span class="badge clicker" ng-click="minusWorker('wood')">-</span><span class="badge clicker" ng-click="addWorker('wood')">+</span></li>
-        <li class="list-group-item" tooltip-placement="left" tooltip-html-unsafe="Rock: {{resource.data.workerResource.rock * resource.data.costPlus.rock}} /10s" tooltip-append-to-body="true">Rock <span class="badge clicker" ng-click="minusWorker('rock')">-</span><span class="badge clicker" ng-click="addWorker('rock')">+</span></li>
-        <li class="list-group-item" tooltip-placement="left" tooltip-html-unsafe="Iron: {{resource.data.workerResource.iron * resource.data.costPlus.iron}} /10s" tooltip-append-to-body="true">Iron <span class="badge clicker" ng-click="minusWorker('iron')">-</span><span class="badge clicker" ng-click="addWorker('iron')">+</span></li>
+        <li class="list-group-item" tooltip-placement="left" tooltip-html-unsafe="+ {{resource.data.workerResource.wood * resource.data.costPlus.wood}} /{{resource.data.heartBeatInterval/1000}}s" tooltip-append-to-body="true">Wood <span class="badge clicker" ng-click="minusWorker('wood')">-</span><span class="badge clicker" ng-click="addWorker('wood')">+</span></li>
+        <li class="list-group-item" tooltip-placement="left" tooltip-html-unsafe="+ {{resource.data.workerResource.rock * resource.data.costPlus.rock}} /{{resource.data.heartBeatInterval/1000}}s" tooltip-append-to-body="true">Rock <span class="badge clicker" ng-click="minusWorker('rock')">-</span><span class="badge clicker" ng-click="addWorker('rock')">+</span></li>
+        <li class="list-group-item" tooltip-placement="left" tooltip-html-unsafe="+ {{resource.data.workerResource.iron * resource.data.costPlus.iron}} /{{resource.data.heartBeatInterval/1000}}s" tooltip-append-to-body="true">Iron <span class="badge clicker" ng-click="minusWorker('iron')">-</span><span class="badge clicker" ng-click="addWorker('iron')">+</span></li>
       </ul>
     </div>
     <div class="col-xs-4"  ng-show="resource.data.building[1].built">
@@ -46,19 +46,23 @@
           <div class="detailName">Worker: </div>
           <div class="detailValue"><span class="badge">{{resource.data.worker}}</span></div>
         </div>
-        <div class="col-xs-12 resourceDetailEntry">
+        <div class="col-xs-12 resourceDetailEntry" tooltip-html-unsafe="{{resource.data.workerResource.wood * resource.data.costPlus.wood }} / {{resource.data.heartBeatInterval/1000}}s" tooltip-placement="left">
           <div class="detailName">Wood: </div>
           <div class="detailValue"><span class="badge">{{resource.data.wood}}</span></div>
         </div>
-        <div class="col-xs-12 resourceDetailEntry">
+        <div class="col-xs-12 resourceDetailEntry" tooltip-html-unsafe="{{resource.data.workerResource.rock * resource.data.costPlus.rock }} / {{resource.data.heartBeatInterval/1000}}s" tooltip-placement="left">
           <div class="detailName">Rock: </div>
           <div class="detailValue"><span class="badge">{{resource.data.rock}}</span></div>
+        </div>
+        <div class="col-xs-12 resourceDetailEntry" tooltip-html-unsafe="{{resource.data.workerResource.iron * resource.data.costPlus.iron }} / {{resource.data.heartBeatInterval/1000}}s" tooltip-placement="left">
+          <div class="detailName">Iron: </div>
+          <div class="detailValue"><span class="badge">{{resource.data.iron}}</span></div>
         </div>
       </div>
     </div>
     <div class="itemDetail">
       <div class="row">
-        <div class="col-xs-12 resourceDetailEntry" ng-repeat="item in me.data.items">
+        <div class="col-xs-12 resourceDetailEntry" ng-repeat="item in me.data.items" tooltip-html-unsafe="{{item.addType}} + {{item.value}}" tooltip-placement="left">
           <div class="detailName">{{item.name}}</div>
           <div class="detailValue"><span class="badge">{{item.type}}</span></div>
         </div>
