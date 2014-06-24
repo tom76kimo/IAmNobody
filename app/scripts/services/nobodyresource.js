@@ -8,6 +8,7 @@ angular.module('iamNobodyApp')
         this.data.rock = 0;
         this.data.iron = 0;
         this.data.worker = 0;
+        this.data.workerValue = 1;
         this.data.workerResource = {
             wood: 0,
             rock: 0,

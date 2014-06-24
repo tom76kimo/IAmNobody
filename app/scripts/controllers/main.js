@@ -30,4 +30,25 @@ angular.module('iamNobodyApp')
 
         return $rootScope.resource.buildBuilding($scope.enterBuilding.id);
     };
+
+    $scope.buyWorker = function () {
+        if ($scope.me.data.money >= $scope.resource.data.workerValue) {
+            $scope.me.data.money -= $scope.resource.data.workerValue;
+            $scope.resource.data.worker += 1;
+        }
+    };
+
+    $scope.addWorker = function (resourceName) {
+        if ($scope.resource.data.worker > 0) {
+            $scope.resource.data.worker --;
+            $scope.resource.data.workerResource[resourceName]++;
+        }
+    };
+
+    $scope.minusWorker = function (resourceName) {
+        if ($scope.resource.data.workerResource[resourceName] > 0) {
+            $scope.resource.data.workerResource[resourceName] --;
+            $scope.resource.data.worker ++;
+        }
+    };
   });

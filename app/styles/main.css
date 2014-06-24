@@ -85,13 +85,13 @@ body {
   box-shadow:         10px 2px 5px 0px rgba(50, 50, 50, 0.75);
 }
 
-.container.ng-leave {
-  -webkit-animation: 0.3s fade-out;
-  -moz-animation: 0.3s fade-out;
-  -o-animation: 0.3s fade-out;
-  animation: 0.3s fade-out;
+.mainChanger.ng-leave {
+  -webkit-animation: 0.2s fade-out;
+  -moz-animation: 0.2s fade-out;
+  -o-animation: 0.2s fade-out;
+  animation: 0.2s fade-out;
 }
-.container.ng-enter {
+.mainChanger.ng-enter {
   -webkit-animation: 0.3s fade-in;
   -moz-animation: 0.3s fade-in;
   -o-animation: 0.3s fade-in;
@@ -161,6 +161,14 @@ body {
   color: #000;
 }
 
+.buildingEntry.built::before{
+  content: '已建造';
+  position: absolute;
+  font-size: 10px;
+  top: 0px;
+  right: 2px;
+}
+
 .buildingName {
   position: absolute;
   height: 20px;
@@ -227,4 +235,30 @@ body {
   top: -12px;
   background-color: white;
   font-weight: bold;
+}
+
+.itemEntry {
+  position: relative;
+  width: 100%;
+  height: 40px;
+  border: 2px solid #000;
+  color: #000;
+  margin: 2px 0;
+  border-radius: 5px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.itemName {
+  position: absolute;
+  height: 20px;
+  margin: auto;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+
+.clicker {
+  cursor: pointer;
 }

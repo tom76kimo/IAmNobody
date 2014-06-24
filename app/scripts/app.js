@@ -5,7 +5,8 @@ angular.module('iamNobodyApp', [
   'ngResource',
   'ngSanitize',
   'ngRoute',
-  'ngAnimate'
+  'ngAnimate',
+  'ui.bootstrap'
 ])
   .config(function ($routeProvider, $locationProvider, $httpProvider) {
     $routeProvider

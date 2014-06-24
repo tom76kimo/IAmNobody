@@ -6,6 +6,7 @@ angular.module('iamNobodyApp')
             this.data = {};
             this.data.lv = 1;
             this.data.exp = 0;
+            this.data.money = 1;
             this.data.hp = 50;
             this.data.maxHp = 100;
             this.data.mp = 20;
