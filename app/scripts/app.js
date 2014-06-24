@@ -56,12 +56,14 @@ angular.module('iamNobodyApp', [
     $rootScope.item = new Item();
     $rootScope.resource = new Nobodyresource();
     
-    if (localStorage.getItem('heroData') !== null) {
+    if (localStorage.getItem('iamnobody') !== null) {
       console.log('Load Data....');
-      $rootScope.me.loadData(JSON.parse(localStorage.getItem('heroData')));
+      var data = JSON.parse(localStorage.getItem('iamnobody'));
+      $rootScope.me.loadData(data.heroData);
+      $rootScope.resource.loadData(data.resourceData);
     }
     setInterval(function () {
-      localStorage.setItem('heroData', JSON.stringify($rootScope.me.data));
+      localStorage.setItem('iamnobody', JSON.stringify({heroData: $rootScope.me.data, resourceData: $rootScope.resource.data}));
       console.log('Saved...');
     }, 5000);
     // Redirect to login if route requires auth and you're not logged in

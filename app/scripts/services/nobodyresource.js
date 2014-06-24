@@ -3,27 +3,28 @@
 angular.module('iamNobodyApp')
   .service('Nobodyresource', function ($rootScope) {
     var Nobodyresource = function () {
-        this.wood = 0;
-        this.rock = 0;
-        this.iron = 0;
-        this.worker = 0;
-        this.workerResource = {
+        this.data = {};
+        this.data.wood = 0;
+        this.data.rock = 0;
+        this.data.iron = 0;
+        this.data.worker = 0;
+        this.data.workerResource = {
             wood: 0,
             rock: 0,
             iron: 0
         };
-        this.costPlus = {
+        this.data.costPlus = {
             wood: 1,
             rock: 0.5,
             iron: 0.5
         };
-        this.heartBeatInterval = 10 * 1000;
-        this.building = [
-            {'name': 'shop', require: {'wood': 100, 'rock': 5}, canBuild: true},
-            {'name': 'weaponShop', require: {'wood': 200, 'rock': 10}, canBuild: false}
+        this.data.heartBeatInterval = 10 * 1000;
+        this.data.building = [
+            {'id': 0, 'name': '商店', require: {'wood': 100}, canBuilt: true, built: false},
+            {'id': 1, 'name': '冶煉屋', require: {'wood': 200, 'rock': 10}, canBuilt: true, built: false}
         ];
 
-
+        this.data.heroBuilding = [];
         //run
         this.heartBeat();
     };
@@ -37,11 +38,32 @@ angular.module('iamNobodyApp')
                 self.addSource('iron');
             });
         };
-        setInterval(doOnHeartBeat, this.heartBeatInterval);
+        setInterval(doOnHeartBeat, this.data.heartBeatInterval);
     };
 
     Nobodyresource.prototype.addSource = function (sourceName) {
-        this[sourceName] += (this.workerResource[sourceName] * this.costPlus[sourceName]);
+        this.data[sourceName] += (this.data.workerResource[sourceName] * this.data.costPlus[sourceName]);
+    };
+
+    Nobodyresource.prototype.buildBuilding = function (buildingId) {
+        var enoughResource = true;
+        for (var attr in this.data.building[buildingId].require) {
+            if (this.data[attr] < this.data.building[buildingId].require[attr]) {
+                enoughResource = false;
+                break;
+            }
+        }
+        if (enoughResource === true) {
+            this.data.building[buildingId].built = true;
+            return true;
+        } else {
+            return false;
+        }
+        
+    };
+
+    Nobodyresource.prototype.loadData = function (data) {
+        this.data = data;
     };
 
     return Nobodyresource;

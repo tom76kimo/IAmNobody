@@ -20,4 +20,13 @@ angular.module('iamNobodyApp')
             return true;
         return false;
     };
+
+    $scope.build = function () {
+        if (!$scope.enterBuilding.canBuilt) {
+            return;
+        }
+
+        //TODO Build bilding....
+        $rootScope.resource.buildBuilding($scope.enterBuilding.id);
+    };
   });
