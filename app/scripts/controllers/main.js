@@ -76,4 +76,8 @@ angular.module('iamNobodyApp')
 
     $scope.smeltItem = function (item) {
     };
+
+    $scope.moveItemToStorage = function (item) {
+        $scope.me.moveToStorage(item);
+    };
   });

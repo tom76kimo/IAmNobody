@@ -6,7 +6,7 @@ angular.module('iamNobodyApp')
             this.data = {};
             this.data.lv = 1;
             this.data.exp = 0;
-            this.data.money = 1;
+            this.data.money = 10;
             this.data.hp = 50;
             this.data.maxHp = 100;
             this.data.mp = 20;
@@ -19,6 +19,8 @@ angular.module('iamNobodyApp')
             this.data.mpAddRate = 0.2;
             this.data.heartBeatInterval = 5000;
             this.data.items = [{"no":3, "name": "小咕咕劍", "type": "weapon", "costPlus": [{"addType": "ad", "value": 15}, {"addType": "ap", "value": 5}], "canBuy": false, "require": {"wood": 5, "rock": 5}}];
+            this.data.itemMaxCapcity = 10;
+            this.data.storage = [];
 
             //run
             this.heartBeat();
@@ -92,7 +94,11 @@ angular.module('iamNobodyApp')
         };
 
         Hero.prototype.addItem = function (item) {
+            if (this.get('items').length >= this.get('itemMaxCapcity')) {
+                return false;
+            }
             this.data.items.push(item);
+            return true;
         };
 
         Hero.prototype.getCostPlus = function () {
@@ -114,6 +120,29 @@ angular.module('iamNobodyApp')
 
         Hero.prototype.set = function (attrName, value) {
             this.data[attrName] = value;
+        };
+
+        Hero.prototype.moveToStorage = function (item) {
+            this.data.storage.push(item);
+            var index = this.searchItem(this.data.items, item);
+            if (index !== -1) {
+                this.data.items.splice(index, 1);
+                return true;
+            }
+            return false;
+        };
+
+        Hero.prototype.removeFromStorage = function (index) {
+            this.data.storage.splice(index, 1);
+        };
+
+        Hero.prototype.searchItem = function (targetArray, item) {
+            for (var i=0; i<targetArray.length; ++i) {
+                if (targetArray[i].name === item.name) {
+                    return i;
+                }
+            }
+            return -1;
         };
 
         return Hero;

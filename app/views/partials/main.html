@@ -69,7 +69,7 @@
       <div class="row">
         <div class="col-xs-12 resourceDetailEntry" ng-repeat="item in me.data.items track by $index" tooltip-html-unsafe="{{currentItemTooltip}}" tooltip-placement="left" ng-mouseenter="setCurrentItem(item)">
           <div class="detailName">{{item.name}}</div>
-          <div class="detailValue"><span class="badge">{{item.type}}</span></div>
+          <div class="detailValue"><span class="badge">{{item.type}}</span><span class="badge abandon" ng-click="moveItemToStorage(item)">X</span></div>
         </div>
       </div>
     </div>

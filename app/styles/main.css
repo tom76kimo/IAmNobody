@@ -280,3 +280,9 @@ body {
   right: 3px;
   font-size: 10px;
 }
+
+.badge.abandon {
+  cursor: pointer;
+  background-color: #D45986;
+  margin-left: 3px;
+}
