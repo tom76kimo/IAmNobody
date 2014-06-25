@@ -34,6 +34,7 @@ angular.module('iamNobodyApp')
 
                     //mp part
                     self.addValue('mp', self.data.mpAddRate);
+                    self.addValue('money', 1);
                 });
             };
 
@@ -79,6 +80,9 @@ angular.module('iamNobodyApp')
                 case 'df':
                     this.data.df += value;
                 break;
+                default:
+                    this.data[valueType] += value;
+                break;
             }
         };
 
@@ -102,6 +106,14 @@ angular.module('iamNobodyApp')
                 }
             }
             return result;
+        };
+
+        Hero.prototype.get = function (attrName) {
+            return this.data[attrName]
+        };
+
+        Hero.prototype.set = function (attrName, value) {
+            this.data[attrName] = value;
         };
 
         return Hero;

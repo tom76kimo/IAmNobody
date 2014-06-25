@@ -27,13 +27,24 @@ angular.module('iamNobodyApp')
     };
 
     Item.prototype.getSmeltingItem = function () {
-        var smeltingItem = [];
+        return this.getItemByCanBuy(false);
+    };
+
+    Item.prototype.getProduct = function () {
+        return this.getItemByCanBuy(true);
+    };
+
+    Item.prototype.getItemByCanBuy = function (canBuy) {
+        if (canBuy !== true && canBuy !== false) {
+            return false;
+        }
+        var result = [];
         for (var i=0; i<this.allItems.length; ++i) {
-            if (this.allItems[i].canBuy === false) {
-                smeltingItem.push(this.allItems[i]);
+            if (this.allItems[i].canBuy === canBuy) {
+                result.push(this.allItems[i]);
             }
         }
-        return smeltingItem;
+        return result;
     };
 
     return Item;

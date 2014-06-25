@@ -240,7 +240,7 @@ body {
 .itemEntry {
   position: relative;
   width: 100%;
-  height: 40px;
+  height: 30px;
   border: 2px solid #000;
   color: #000;
   margin: 2px 0;
@@ -261,4 +261,22 @@ body {
 
 .clicker {
   cursor: pointer;
+}
+
+.money.badge {
+  background: #D8DE3C;
+}
+
+.list-group.produce {
+  position: relative;
+  margin-top: 7px;
+}
+.list-group.produce::before {
+  content: attr(data-worker);
+  position: absolute;
+  background-color: white;
+  z-index: 1;
+  top: -10px;
+  right: 3px;
+  font-size: 10px;
 }

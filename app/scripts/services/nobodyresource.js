@@ -8,6 +8,7 @@ angular.module('iamNobodyApp')
         this.data.rock = 0;
         this.data.iron = 0;
         this.data.worker = 0;
+        this.data.maxWorker = 0;
         this.data.workerValue = 1;
         this.data.workerResource = {
             wood: 0,
@@ -72,7 +73,8 @@ angular.module('iamNobodyApp')
 
     Nobodyresource.prototype.buyWorker = function () {
         this.data.worker ++;
-        this.data.workerValue = this.data.worker + 1;
+        this.data.maxWorker ++;
+        this.data.workerValue = this.data.maxWorker + 1;
     };
 
     return Nobodyresource;

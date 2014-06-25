@@ -8,6 +8,7 @@ angular.module('iamNobodyApp')
     $scope.resource = $rootScope.resource;
     $scope.me = $rootScope.me;
     $scope.smeltingItems = $rootScope.item.getSmeltingItem();
+    $scope.products = $rootScope.item.getProduct();
 
     $scope.enterBulding = function (building) {
         $scope.enterBuilding = building;
@@ -52,13 +53,27 @@ angular.module('iamNobodyApp')
         }
     };
 
-    $scope.setCurrentItem = function (item) {
+    $scope.setCurrentItem = function (item, isProduct) {
+        isProduct = isProduct || false;
         $scope.currentItem = item;
         var output = '<div class="row">';
+        if (isProduct) {
+            output += '<div class="col-xs-12">金錢: ' + item.money + '</div>';
+        }
         for (var i=0; i<$scope.currentItem.costPlus.length; ++i) {
             output += '<div class="col-xs-12">' + $scope.currentItem.costPlus[i].addType + ' + ' + $scope.currentItem.costPlus[i].value + '</div>';
         }
         output += '</div>';
         $scope.currentItemTooltip = output;
+    };
+
+    $scope.buyItem = function (item) {
+        if ($scope.me.get('money') >= item.money) {
+            $scope.me.addItem(item);
+            $scope.me.set('money', $scope.me.get('money') - item.money);
+        }
+    };
+
+    $scope.smeltItem = function (item) {
     };
   });
