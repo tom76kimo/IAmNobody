@@ -53,20 +53,27 @@ angular.module('iamNobodyApp')
         }
     };
 
-    $scope.setCurrentItem = function (item, isProduct) {
-        isProduct = isProduct || false;
+    $scope.setCurrentItem = function (item, options) {
+        options = options || {};
         $scope.currentItem = item;
-        this.produceTooltipHTML(isProduct);
+        this.produceTooltipHTML(options);
     };
 
-    $scope.produceTooltipHTML = function (isProduct) {
+    $scope.produceTooltipHTML = function (options) {
         var output = '<div class="row">';
-        if (isProduct) {
+        if (options.isProduct) {
             output += '<div class="col-xs-12">金錢: ' + $scope.currentItem.money + '</div>';
         }
-        for (var i=0; i<$scope.currentItem.costPlus.length; ++i) {
-            output += '<div class="col-xs-12">' + $scope.currentItem.costPlus[i].addType + ' + ' + $scope.currentItem.costPlus[i].value + '</div>';
+        if (options.isSmeltingItem) {
+            for (var attr in $scope.currentItem.require) {
+                output += '<div class="col-xs-12"><div class="detailName">' + attr + '</div><div class="detailValue">' + $scope.currentItem.require[attr] + '</div></div>';
+            }
+        } else {
+            for (var i=0; i<$scope.currentItem.costPlus.length; ++i) {
+                output += '<div class="col-xs-12">' + $scope.currentItem.costPlus[i].addType + ' + ' + $scope.currentItem.costPlus[i].value + '</div>';
+            }
         }
+        
         output += '</div>';
         $scope.currentItemTooltip = output;
     };

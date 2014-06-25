@@ -23,7 +23,7 @@
       <div class="itemEntry" ng-click="buyWorker()">
         <div class="itemName" tooltip="{{resource.data.workerValue}}元" tooltip-placement="left">雇用工人</div>
       </div>
-      <div class="itemEntry" ng-click="buyItem(product)" ng-repeat="product in products" tooltip-html-unsafe="{{currentItemTooltip}}" tooltip-placement="left" ng-mouseenter="setCurrentItem(product, true)">
+      <div class="itemEntry" ng-click="buyItem(product)" ng-repeat="product in products" tooltip-html-unsafe="{{currentItemTooltip}}" tooltip-placement="left" ng-mouseenter="setCurrentItem(product, {isProduct: true})">
         <div class="itemName">{{product.name}}</div>
       </div>
     </div>
@@ -37,7 +37,7 @@
     </div>
     <div class="col-xs-4"  ng-show="resource.data.building[1].built">
       冶煉
-      <div ng-repeat="item in smeltingItems" class="itemEntry" tooltip-html-unsafe="" tooltip-placement="left" ng-click="smeltItem(item)"><div class="itemName">{{item.name}}</div></div>
+      <div ng-repeat="item in smeltingItems" class="itemEntry" tooltip-html-unsafe="{{currentItemTooltip}}" tooltip-placement="left" ng-click="smeltItem(item)" ng-mouseenter="setCurrentItem(item, {isSmeltingItem: true})" ><div class="itemName">{{item.name}}</div></div>
     </div>
   </div>
   <div class="col-xs-4">
