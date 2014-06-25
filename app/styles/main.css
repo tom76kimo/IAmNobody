@@ -249,6 +249,10 @@ body {
   cursor: pointer;
 }
 
+.itemEntry:hover {
+  background-color: #ddd;
+}
+
 .itemName {
   position: absolute;
   height: 20px;
@@ -285,4 +289,18 @@ body {
   cursor: pointer;
   background-color: #D45986;
   margin-left: 3px;
+}
+
+.resourceDetailEntry.ng-leave {
+  -webkit-animation: 0.3s fade-out;
+  -moz-animation: 0.3s fade-out;
+  -o-animation: 0.3s fade-out;
+  animation: 0.3s fade-out;
+}
+
+.resourceDetailEntry.ng-enter {
+  -webkit-animation: 0.3s fade-in;
+  -moz-animation: 0.3s fade-in;
+  -o-animation: 0.3s fade-in;
+  animation: 0.3s fade-in;
 }

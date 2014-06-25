@@ -30,7 +30,7 @@
             <div class="eventFlow col-xs-2" ng-controller="eventFlowCtrl">
                 <progressbar value="me.data.hp/me.data.maxHp * 100" max="100">{{me.data.hp/me.data.maxHp * 100}}%</progressbar>
                 <ul>
-                    <li ng-repeat="event in events">{{event.description}}</li>
+                    <li ng-repeat="event in events | reverse">{{event.description}}</li>
                 </ul>
             </div>
             <div class="col-xs-10 ">

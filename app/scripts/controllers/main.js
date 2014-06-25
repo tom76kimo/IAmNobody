@@ -80,8 +80,14 @@ angular.module('iamNobodyApp')
 
     $scope.buyItem = function (item) {
         if ($scope.me.get('money') >= item.money) {
-            $scope.me.addItem(item);
-            $scope.me.set('money', $scope.me.get('money') - item.money);
+            if ($scope.me.addItem(item)) {
+                $scope.me.set('money', $scope.me.get('money') - item.money);
+                $rootScope.events.push({'description': '買了{ '+ item.name + ' }'});
+            } else {
+                $rootScope.events.push({'description': '空間不夠...'});
+            }
+        } else {
+            $rootScope.events.push({'description': '錢好像不夠...'});
         }
     };
 

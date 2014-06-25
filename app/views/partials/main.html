@@ -21,7 +21,7 @@
       購買
       <div></div>
       <div class="itemEntry" ng-click="buyWorker()">
-        <div class="itemName" tooltip="{{resource.data.workerValue}}元" tooltip-placement="left">雇用工人</div>
+        <div class="itemName" tooltip="金錢: {{resource.data.workerValue}}" tooltip-placement="left">雇用工人</div>
       </div>
       <div class="itemEntry" ng-click="buyItem(product)" ng-repeat="product in products" tooltip-html-unsafe="{{currentItemTooltip}}" tooltip-placement="left" ng-mouseenter="setCurrentItem(product, {isProduct: true})">
         <div class="itemName">{{product.name}}</div>
@@ -69,7 +69,7 @@
       <div class="row">
         <div class="col-xs-12 resourceDetailEntry" ng-repeat="item in me.data.items track by $index" tooltip-html-unsafe="{{currentItemTooltip}}" tooltip-placement="left" ng-mouseenter="setCurrentItem(item)">
           <div class="detailName">{{item.name}}</div>
-          <div class="detailValue"><span class="badge">{{item.type}}</span><span class="badge abandon" ng-click="moveItemToStorage(item)">X</span></div>
+          <div class="detailValue"><span class="badge">{{item.type}}</span><span class="badge abandon" ng-click="moveItemToStorage(item)" tooltip="收至儲物箱" tooltip-placement="right">X</span></div>
         </div>
       </div>
     </div>
