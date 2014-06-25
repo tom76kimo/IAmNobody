@@ -56,9 +56,13 @@ angular.module('iamNobodyApp')
     $scope.setCurrentItem = function (item, isProduct) {
         isProduct = isProduct || false;
         $scope.currentItem = item;
+        this.produceTooltipHTML(isProduct);
+    };
+
+    $scope.produceTooltipHTML = function (isProduct) {
         var output = '<div class="row">';
         if (isProduct) {
-            output += '<div class="col-xs-12">金錢: ' + item.money + '</div>';
+            output += '<div class="col-xs-12">金錢: ' + $scope.currentItem.money + '</div>';
         }
         for (var i=0; i<$scope.currentItem.costPlus.length; ++i) {
             output += '<div class="col-xs-12">' + $scope.currentItem.costPlus[i].addType + ' + ' + $scope.currentItem.costPlus[i].value + '</div>';
@@ -75,6 +79,23 @@ angular.module('iamNobodyApp')
     };
 
     $scope.smeltItem = function (item) {
+        if (item.canBuy !== false) {
+            return;
+        }
+
+        //check resource amount
+        for (var attr in item.require) {
+            if ($scope.resource.data[attr] < item.require[attr]) {
+                return false;
+            }
+        }
+
+        //minors resource amount
+        for (var attr in item.require) {
+            $scope.resource.data[attr] -= item.require[attr];
+        }
+        $scope.me.addItem(item);
+        return true;
     };
 
     $scope.moveItemToStorage = function (item) {

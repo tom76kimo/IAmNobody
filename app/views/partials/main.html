@@ -37,7 +37,7 @@
     </div>
     <div class="col-xs-4"  ng-show="resource.data.building[1].built">
       冶煉
-      <div ng-repeat="item in smeltingItems" class="itemEntry" tooltip-html-unsafe="" tooltip-placement="left"><div class="itemName">{{item.name}}</div></div>
+      <div ng-repeat="item in smeltingItems" class="itemEntry" tooltip-html-unsafe="" tooltip-placement="left" ng-click="smeltItem(item)"><div class="itemName">{{item.name}}</div></div>
     </div>
   </div>
   <div class="col-xs-4">
