@@ -72,7 +72,7 @@ angular.module('iamNobodyApp')
 
     Nobodyresource.prototype.buyWorker = function () {
         this.data.worker ++;
-        this.data.workerValue = this.data.worker;
+        this.data.workerValue = this.data.worker + 1;
     };
 
     return Nobodyresource;

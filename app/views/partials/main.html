@@ -20,7 +20,7 @@
     <div class="col-xs-4" ng-show="resource.data.building[0].built">
       購買
       <div class="itemEntry" ng-click="buyWorker()">
-        <div class="itemName">雇用工人</div>
+        <div class="itemName" tooltip="{{resource.data.workerValue}}元" tooltip-placement="left">雇用工人</div>
       </div>
     </div>
     <div class="col-xs-4" >
