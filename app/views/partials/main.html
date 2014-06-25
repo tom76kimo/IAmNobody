@@ -33,6 +33,7 @@
     </div>
     <div class="col-xs-4"  ng-show="resource.data.building[1].built">
       冶煉
+      <div ng-repeat="item in smeltingItems" class="itemEntry" tooltip-html-unsafe="" tooltip-placement="left"><div class="itemName">{{item.name}}</div></div>
     </div>
   </div>
   <div class="col-xs-4">
@@ -62,7 +63,7 @@
     </div>
     <div class="itemDetail">
       <div class="row">
-        <div class="col-xs-12 resourceDetailEntry" ng-repeat="item in me.data.items" tooltip-html-unsafe="{{item.addType}} + {{item.value}}" tooltip-placement="left">
+        <div class="col-xs-12 resourceDetailEntry" ng-repeat="item in me.data.items" tooltip-html-unsafe="{{currentItemTooltip}}" tooltip-placement="left" ng-mouseenter="setCurrentItem(item)">
           <div class="detailName">{{item.name}}</div>
           <div class="detailValue"><span class="badge">{{item.type}}</span></div>
         </div>

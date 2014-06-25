@@ -7,7 +7,7 @@ angular.module('iamNobodyApp')
     });
     $scope.resource = $rootScope.resource;
     $scope.me = $rootScope.me;
-    console.log($scope.me.data.items);
+    $scope.smeltingItems = $rootScope.item.getSmeltingItem();
 
     $scope.enterBulding = function (building) {
         $scope.enterBuilding = building;
@@ -34,7 +34,7 @@ angular.module('iamNobodyApp')
     $scope.buyWorker = function () {
         if ($scope.me.data.money >= $scope.resource.data.workerValue) {
             $scope.me.data.money -= $scope.resource.data.workerValue;
-            $scope.resource.data.worker += 1;
+            $scope.resource.buyWorker();
         }
     };
 
@@ -50,5 +50,15 @@ angular.module('iamNobodyApp')
             $scope.resource.data.workerResource[resourceName] --;
             $scope.resource.data.worker ++;
         }
+    };
+
+    $scope.setCurrentItem = function (item) {
+        $scope.currentItem = item;
+        var output = '<div class="row">';
+        for (var i=0; i<$scope.currentItem.costPlus.length; ++i) {
+            output += '<div class="col-xs-12">' + $scope.currentItem.costPlus[i].addType + ' + ' + $scope.currentItem.costPlus[i].value + '</div>';
+        }
+        output += '</div>';
+        $scope.currentItemTooltip = output;
     };
   });

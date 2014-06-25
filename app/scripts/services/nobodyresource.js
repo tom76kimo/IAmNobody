@@ -70,6 +70,11 @@ angular.module('iamNobodyApp')
         this.data = data;
     };
 
+    Nobodyresource.prototype.buyWorker = function () {
+        this.data.worker ++;
+        this.data.workerValue = this.data.worker;
+    };
+
     return Nobodyresource;
     
   });

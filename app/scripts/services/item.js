@@ -11,6 +11,7 @@ angular.module('iamNobodyApp')
     };
     var Item = function () {
         this.userItems = [];
+        this.allItems = [];
         /*
         this.userWeapon = null;
         this.userArmor = null;
@@ -23,6 +24,16 @@ angular.module('iamNobodyApp')
         $http.get('json/item.json').success(function (data) {
             self.allItems = data;
         });
+    };
+
+    Item.prototype.getSmeltingItem = function () {
+        var smeltingItem = [];
+        for (var i=0; i<this.allItems.length; ++i) {
+            if (this.allItems[i].canBuy === false) {
+                smeltingItem.push(this.allItems[i]);
+            }
+        }
+        return smeltingItem;
     };
 
     return Item;
