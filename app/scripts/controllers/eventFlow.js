@@ -1,10 +1,11 @@
 'use strict';
 
 angular.module('iamNobodyApp')
-    .controller('eventFlowCtrl', function ($scope, $rootScope) {
+    .controller('eventFlowCtrl', function ($scope, $rootScope, $window) {
         $scope.events = $rootScope.events = [
-            {'description': '我是一個無名的人'}
         ];
+
+        $scope.innerHeight = $window.innerHeight - 130;
 
         $scope.eventInjection = function (eventEntry) {
             $scope.$apply(function() {

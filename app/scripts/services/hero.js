@@ -21,6 +21,7 @@ angular.module('iamNobodyApp')
             this.data.items = [{"no":3, "name": "小咕咕劍", "type": "weapon", "costPlus": [{"addType": "ad", "value": 15}, {"addType": "ap", "value": 5}], "canBuy": false, "require": {"wood": 5, "rock": 5}}];
             this.data.itemMaxCapcity = 10;
             this.data.storage = [];
+            this.data.openingWords = 0;
 
             //run
             this.heartBeat();

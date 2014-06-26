@@ -27,7 +27,7 @@
     <div class="mainContainer">
         <div ng-include="'partials/navbar.html'"></div>
         <div class="row" style="width: 100%;">
-            <div class="eventFlow col-xs-2" ng-controller="eventFlowCtrl">
+            <div class="eventFlow col-xs-2" ng-controller="eventFlowCtrl" style="height: {{innerHeight}}px;">
                 <progressbar value="me.data.hp/me.data.maxHp * 100" max="100">{{me.data.hp/me.data.maxHp * 100}}%</progressbar>
                 <ul>
                     <li ng-repeat="event in events | reverse">{{event.description}}</li>

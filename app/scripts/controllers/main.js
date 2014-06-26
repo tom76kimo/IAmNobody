@@ -2,13 +2,21 @@
 
 angular.module('iamNobodyApp')
   .controller('MainCtrl', function ($scope, $http, $rootScope) {
-    $http.get('/api/awesomeThings').success(function(awesomeThings) {
-      $scope.awesomeThings = awesomeThings;
-    });
     $scope.resource = $rootScope.resource;
     $scope.me = $rootScope.me;
     $scope.smeltingItems = $rootScope.item.getSmeltingItem();
     $scope.products = $rootScope.item.getProduct();
+
+    $scope.openingWordsGoing = function () {
+        if ($scope.me.data.openingWords === 0) {
+            $rootScope.events.push({'description': '我是一個無名的人...'});
+        } else if($scope.me.data.openingWords === 1){
+            $rootScope.events.push({'description': '但也只是現在'});
+        } else {
+            $rootScope.events.push({'description': '我已經準備好開始我的旅程'});
+        }
+        $scope.me.data.openingWords++;
+    };
 
     $scope.enterBulding = function (building) {
         $scope.enterBuilding = building;
@@ -36,6 +44,7 @@ angular.module('iamNobodyApp')
         if ($scope.me.data.money >= $scope.resource.data.workerValue) {
             $scope.me.data.money -= $scope.resource.data.workerValue;
             $scope.resource.buyWorker();
+            $rootScope.events.push({'description': '雇用一位工人'});
         }
     };
 
