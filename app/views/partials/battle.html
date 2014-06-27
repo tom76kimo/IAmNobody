@@ -1,12 +1,54 @@
 <div class="jumbotron">
-  <h1>'Allo, 'Allo <span ng-show="currentUser"></span>!</h1>
-  <p class="lead">
-    <img src="images/yeoman.png" alt="I'm Yeoman"><br>
-    Always a pleasure scaffolding your apps.
-  </p>
-  <p><a class="btn btn-lg btn-success" ng-href="#">Splendid!</a></p>
+    <div class="row">
+        <div class="col-xs-3">
+            <div class="row heroDetail">
+                <div class="col-xs-12">
+                    <div class="text-align-left">生命(hp)</div>
+                    <progressbar value="me.data.hp" max="me.data.maxHp">{{me.data.hp}} / {{me.data.maxHp}}</progressbar>
+                </div>
+                <div class="col-xs-12">
+                    <div class="text-align-left">魔力(mp)</div>
+                    <progressbar value="me.data.mp" max="me.data.maxMp">{{me.data.mp}} / {{me.data.maxMp}}</progressbar>
+                </div>
+                <div class="col-xs-12">
+                    <div class="detailName">物理傷害(ad)</div>
+                    <div class="detailValue">{{me.data.ad}}</div>
+                </div>
+                <div class="col-xs-12">
+                    <div class="detailName">魔法傷害(ap)</div>
+                    <div class="detailValue">{{me.data.ap}}</div>
+                </div>
+                <div class="col-xs-12">
+                    <div class="detailName">物理防禦(df)</div>
+                    <div class="detailValue">{{me.data.df}}</div>
+                </div>
+                <div class="col-xs-12">
+                    <div class="detailName">魔法防禦(pf)</div>
+                    <div class="detailValue">{{me.data.pf}}</div>
+                </div>
+                <div class="col-xs-12">
+                    <div class="detailName">生命回復率</div>
+                    <div class="detailValue">{{me.data.hpAddRate}}/{{me.data.heartBeatInterval/1000}}s</div>
+                </div>
+                <div class="col-xs-12">
+                    <div class="detailName">魔力回復率</div>
+                    <div class="detailValue">{{me.data.mpAddRate}}/{{me.data.heartBeatInterval/1000}}s</div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-9">
+            <h1>'Allo, 'Allo <span ng-show="currentUser"></span>!</h1>
+            <p class="lead">
+                <img src="images/yeoman.png" alt="I'm Yeoman"><br>
+                Always a pleasure scaffolding your apps.
+            </p>
+            <p><a class="btn btn-lg btn-success" ng-href="#">Splendid!</a></p>
+        </div>
+    </div>
+        
+  
 </div>
 
 <div class="footer">
-  <p>♥ from the Yeoman team</p>
+  <p>Thanks for the Yeoman team</p>
 </div>

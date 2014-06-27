@@ -1,11 +1,12 @@
 'use strict';
 
 angular.module('iamNobodyApp')
-  .controller('MainCtrl', function ($scope, $http, $rootScope) {
+  .controller('MainCtrl', function ($scope, $http, $rootScope, $window) {
     $scope.resource = $rootScope.resource;
     $scope.me = $rootScope.me;
     $scope.smeltingItems = $rootScope.item.getSmeltingItem();
     $scope.products = $rootScope.item.getProduct();
+    $scope.windowHeight = $window.innerHeight - 300;
 
     $scope.openingWordsGoing = function () {
         if ($scope.me.data.openingWords === 0) {
@@ -121,6 +122,8 @@ angular.module('iamNobodyApp')
     };
 
     $scope.moveItemToStorage = function (item) {
-        $scope.me.moveToStorage(item);
+        if ($scope.me.moveToStorage(item) === true) {
+            $rootScope.events.push({'description': '已丟棄{ ' + item.name + ' }'});
+        }
     };
   });

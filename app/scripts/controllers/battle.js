@@ -1,8 +1,6 @@
 'use strict';
 
 angular.module('iamNobodyApp')
-  .controller('BattleCtrl', function ($scope, $http) {
-    $http.get('/api/awesomeThings').success(function(awesomeThings) {
-      $scope.awesomeThings = awesomeThings;
-    });
+  .controller('BattleCtrl', function ($scope, $rootScope) {
+    $scope.me = $rootScope.me;
   });

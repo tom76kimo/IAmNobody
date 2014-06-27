@@ -230,6 +230,10 @@ body {
   position: relative;
 }
 
+.itemScroll {
+  overflow-y: scroll;
+}
+
 .itemDetail::before {
   content: '裝備';
   position: absolute;
@@ -304,4 +308,13 @@ body {
   -moz-animation: 0.3s fade-in;
   -o-animation: 0.3s fade-in;
   animation: 0.3s fade-in;
+}
+
+.heroDetail {
+  border: 1px solid #000;
+  border-radius: 5px;
+}
+
+.text-align-left {
+  text-align: left;
 }
