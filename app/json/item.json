@@ -1,5 +1,7 @@
 [
     {"no":1, "name": "木刀", "type": "weapon", "costPlus": [{"addType": "ad", "value": 1}], "canBuy": true, "money": 1},
     {"no":2, "name": "畸零劍", "type": "weapon", "costPlus": [{"addType": "ad", "value": 3}], "canBuy": true, "money": 5},
-    {"no":3, "name": "小咕咕劍", "type": "weapon", "costPlus": [{"addType": "ad", "value": 15}, {"addType": "ap", "value": 5}], "canBuy": false, "require": {"wood": 5, "rock": 5}}
+    {"no":3, "name": "璇鐵劍", "type": "weapon", "costPlus": [{"addType": "ad", "value": 6}], "canBuy": true, "money": 18},
+    {"no":4, "name": "木帆刀", "type": "weapon", "costPlus": [{"addType": "ad", "value": 22}], "canBuy": true, "money": 220},
+    {"no":5, "name": "小咕咕劍", "type": "weapon", "costPlus": [{"addType": "ad", "value": 15}, {"addType": "ap", "value": 5}], "canBuy": false, "require": {"wood": 5, "rock": 5}}
 ]
